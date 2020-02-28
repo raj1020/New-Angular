@@ -8,7 +8,7 @@ import { getCurrencySymbol } from '@angular/common';
     <h2>{{2+2}}</h2>
     <h2 [class] = "dangerClass">{{"Welcome" + name}}</h2>
     <h2 [class.text-danger] = "hasError">The length of the name is {{name.length}}</h2>
-    <h2>Your name in UpperCase {{name.toUpperCase()}}</h2>
+    <h2 [ngClass]="messageClasses" >Your name in UpperCase {{name.toUpperCase()}}</h2>
     <h2>{{greetUser()}}</h2>
     <h2>The url of this webpage is "{{siteUrl}}"</h2>
     <input [id]= "myId" type= "text" value= "Paul">
@@ -39,6 +39,13 @@ export class TestComponent implements OnInit {
   public isDisabled = true;
   public dangerClass = "text-danger";
   public hasError = true;
+  public isSpecial = true;
+
+  public messageClasses = {
+    "text-success": this.hasError,
+    "text-danger": !this.hasError,
+    "text-special": this.isSpecial 
+  }
 
   
   constructor() { }
