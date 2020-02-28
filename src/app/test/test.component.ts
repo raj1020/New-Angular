@@ -13,7 +13,17 @@ import { getCurrencySymbol } from '@angular/common';
     <h2 [style.color] = "highlightColor" >The url of this webpage is "{{siteUrl}}"</h2>
     <input [id]= "myId" type= "text" value= "Paul">
     <div [ngStyle] = "titleStyles" ><p>Sing a sweet song.</p></div>
+    
     <input [disabled] = "isDisabled" id= "{{myId}} type= "text value= "Paul">
+    <div><p></p></div>
+    <button (click) = "onClick()">Greet on a Click</button>
+    
+    <div><p></p></div>
+    {{greeting}}
+    <div><p></p></div>
+    <button (click) = "greeting = 'Welcome My Friend'">Greet on a Click</button>
+
+    
 
   </div>`,
   styles: [`
@@ -54,6 +64,8 @@ export class TestComponent implements OnInit {
     "text-special": this.isSpecial 
   }
 
+  public greeting = "";
+
   
   constructor() { }
 
@@ -62,6 +74,11 @@ export class TestComponent implements OnInit {
 
   greetUser() {
     return "GdDay " + this.name;
+  }
+
+  onClick() {
+    console.log("Congrats on starting Angular lesson");
+    this.greeting = 'Congrats on starting Angular lesson';
   }
 
 }
