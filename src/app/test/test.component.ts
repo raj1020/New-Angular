@@ -9,10 +9,10 @@ import { getCurrencySymbol } from '@angular/common';
     <h2 [class] = "dangerClass">{{"Welcome" + name}}</h2>
     <h2 [class.text-danger] = "hasError">The length of the name is {{name.length}}</h2>
     <h2 [ngClass]="messageClasses" >Your name in UpperCase {{name.toUpperCase()}}</h2>
-    <h2>{{greetUser()}}</h2>
-    <h2>The url of this webpage is "{{siteUrl}}"</h2>
+    <h2 [style.color] = "hasError ? 'purple' : 'orange'" >{{greetUser()}}</h2>
+    <h2 [style.color] = "highlightColor" >The url of this webpage is "{{siteUrl}}"</h2>
     <input [id]= "myId" type= "text" value= "Paul">
-    <div><p></p></div>
+    <div [ngStyle] = "titleStyles" ><p>Sing a sweet song.</p></div>
     <input [disabled] = "isDisabled" id= "{{myId}} type= "text value= "Paul">
 
   </div>`,
@@ -40,6 +40,13 @@ export class TestComponent implements OnInit {
   public dangerClass = "text-danger";
   public hasError = true;
   public isSpecial = true;
+  public highlightColor = "orange";
+  public titleStyles = {
+    color: "violet",
+    fontStyle: "italic", 
+    fontWeight: "bold"
+    
+  }
 
   public messageClasses = {
     "text-success": this.hasError,
