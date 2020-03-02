@@ -5,6 +5,28 @@ import { getCurrencySymbol } from '@angular/common';
   selector: 'app-test',
   template: `<div>
 
+    <div *ngIf="displayName; then thenBlock; else elseBlock"> </div>
+      <ng-template #thenBlock>
+      
+        <h2>
+          Display the name
+        </h2>
+
+      </ng-template>
+
+      <ng-template #elseBlock>
+    
+      <h2>
+        Name is hidden
+      </h2>
+
+    </ng-template>
+    
+    
+
+    
+
+
     <input [(ngModel)] = "naam" type = "text">
     {{naam}}
     <h2 class = "text-success">Welcome {{name}}</h2>
@@ -46,6 +68,7 @@ import { getCurrencySymbol } from '@angular/common';
 })
 export class TestComponent implements OnInit {
 
+  displayName = false;
   public naam: string = "";
 
   public name = "Michael";
