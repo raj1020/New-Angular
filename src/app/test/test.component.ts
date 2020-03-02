@@ -5,6 +5,15 @@ import { getCurrencySymbol } from '@angular/common';
   selector: 'app-test',
   template: `<div>
 
+    <div [ngSwitch]= "color">
+      <div *ngSwitchCase = "'red'">You picked red colour</div> 
+      <div *ngSwitchCase = "'blue'">You picked blue colour</div> 
+      <div *ngSwitchCase = "'green'">You picked green colour</div> 
+      <div *ngSwitchDefault>Pick again. </div> 
+
+
+    </div>
+
     <div *ngIf="displayName; then thenBlock; else elseBlock"> </div>
       <ng-template #thenBlock>
       
@@ -68,6 +77,8 @@ import { getCurrencySymbol } from '@angular/common';
 })
 export class TestComponent implements OnInit {
 
+  
+  public color = "violet";
   displayName = false;
   public naam: string = "";
 
