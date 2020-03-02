@@ -4,6 +4,9 @@ import { getCurrencySymbol } from '@angular/common';
 @Component({
   selector: 'app-test',
   template: `<div>
+
+    <input [(ngModel)] = "naam" type = "text">
+    {{naam}}
     <h2 class = "text-success">Welcome {{name}}</h2>
     <h2>{{2+2}}</h2>
     <h2 [class] = "dangerClass">{{"Welcome" + name}}</h2>
@@ -42,6 +45,8 @@ import { getCurrencySymbol } from '@angular/common';
   `]
 })
 export class TestComponent implements OnInit {
+
+  public naam: string = "";
 
   public name = "Michael";
   public siteUrl = window.location.href;
