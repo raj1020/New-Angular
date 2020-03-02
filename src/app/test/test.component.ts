@@ -5,6 +5,18 @@ import { getCurrencySymbol } from '@angular/common';
   selector: 'app-test',
   template: `<div>
 
+    <ul *ngFor = "let color of colors; index as i">
+        <li>{{i + 1}} {{color}}</li>
+    
+    </ul>
+
+    <ul *ngFor = "let color of colors; odd as o">
+        <li>{{o}} {{color}}</li>
+    
+    </ul>
+
+
+
     <div [ngSwitch]= "color">
       <div *ngSwitchCase = "'red'">You picked red colour</div> 
       <div *ngSwitchCase = "'blue'">You picked blue colour</div> 
@@ -77,7 +89,7 @@ import { getCurrencySymbol } from '@angular/common';
 })
 export class TestComponent implements OnInit {
 
-  
+  public colors = ["red", "blue", "green", "yellow"];
   public color = "violet";
   displayName = false;
   public naam: string = "";
