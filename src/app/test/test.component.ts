@@ -8,6 +8,19 @@ import { getCurrencySymbol } from '@angular/common';
     <h2>{{"Hello " + namename}}</h2>
     <button (click) = "fireEvent()">Send Event</button>
 
+    <h2>{{namename | lowercase}}</h2>
+    <h2>{{namename | uppercase}}</h2>
+    <h2>{{namename | titlecase}}</h2>
+    <h2>{{namename | slice: 3:7}}</h2>
+    <h2>{{titleStyles | json}}</h2>
+    <h2>{{5.678 | number: '1.2-3'}}</h2>
+    <h2>{{5.678 | number: '3.4-5'}}</h2>
+    <h2>{{5.678 | number: '3.1-2'}}</h2>
+    <h2>{{0.25 |currency: 'INR ': 'code'}}</h2>
+    <h2>{{date | date: 'longDate'}}</h2>
+    <h2>{{date | date: 'longTime'}}</h2>
+
+
     <ul *ngFor = "let color of colors; index as i">
         <li>{{i + 1}} {{color}}</li>
     
@@ -95,6 +108,8 @@ export class TestComponent implements OnInit {
 
   @Output() public childEvent = new EventEmitter();
   @Input('parentData') public namename;
+
+  public date = new Date();
 
   public colors = ["red", "blue", "green", "yellow"];
   public color = "violet";
