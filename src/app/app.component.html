@@ -7,8 +7,9 @@
   
   <div>
 
-        <h1>From App Component</h1>
-        <app-test></app-test>
+        <h1>{{message}}</h1>
+        
+        <app-test  [parentData]= "namename"  (childEvent) = "message = $event"></app-test>
 
     
 

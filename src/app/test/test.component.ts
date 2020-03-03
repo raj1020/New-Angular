@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { getCurrencySymbol } from '@angular/common';
 
 @Component({
   selector: 'app-test',
   template: `<div>
+
+    <h2>{{"Hello " + namename}}</h2>
+    <button (click) = "fireEvent()">Send Event</button>
 
     <ul *ngFor = "let color of colors; index as i">
         <li>{{i + 1}} {{color}}</li>
@@ -89,6 +92,10 @@ import { getCurrencySymbol } from '@angular/common';
 })
 export class TestComponent implements OnInit {
 
+
+  @Output() public childEvent = new EventEmitter();
+  @Input('parentData') public namename;
+
   public colors = ["red", "blue", "green", "yellow"];
   public color = "violet";
   displayName = false;
@@ -131,5 +138,10 @@ export class TestComponent implements OnInit {
     console.log("Congrats on starting Angular lesson");
     this.greeting = 'Congrats on starting Angular lesson';
   }
+
+  fireEvent() {
+    this.childEvent.emit('Hey SuperStar');
+  }
+
 
 }
