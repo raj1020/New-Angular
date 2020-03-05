@@ -7,6 +7,7 @@ import { TestComponent } from './test/test.component';
 import { EmployeeService } from './employee.service';
 import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EmployeeDetailComponent } from './employee-detail.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
